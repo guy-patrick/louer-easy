@@ -82,7 +82,7 @@ const ResultDetail = ({ rental }) => {
                             }}
                             className='display-photos-btn'>
                             Parcourir les photos
-                    </span>
+                        </span>
                         {(isOpen && imageUrls.length !== 0) && (
                             <Lightbox
                                 mainSrc={imageUrls[photoIndex]}

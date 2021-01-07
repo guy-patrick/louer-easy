@@ -1030,21 +1030,27 @@ button {
     display: flex;
     flex-direction: column;
     margin: 30px auto;
-    max-width: 700px;
+    padding: 1em;
+    max-width: 600px;
+    align-items: center;
 
     @media (min-width: 1000px){
         flex-direction: row;
         justify-content: space-between;
+        padding: unset;
         max-width: 1000px;
     }
 }
 
 .result-data {
     padding: .5em;
+    margin: .5em;
     border: 1px solid rgba(0,0,0,0.2);
+    width: 100%;
     
     @media (min-width: 1000px) {
         width: 59%;
+        margin: unset;
     }
 }
 
@@ -1068,12 +1074,16 @@ button {
     .display-photos-btn {
         position: absolute;
         top: 46%;
-        right: 40%;
+        right: 30%;
         padding      : .3em 1em;
         border-radius: 15px;
         background   : #e00034;
         color        : white;
         cursor: pointer;
+
+        @media (min-width: 600px) {
+            right: 38%;
+        }
 
         &:hover {
             background : #000;
@@ -1140,9 +1150,6 @@ button {
         font-weight: bold;
         color      : #262626;
     }
-    .description {
-
-    }
 }
 
 .result-properties {
@@ -1170,7 +1177,12 @@ button {
 .result-contact-form {
     border-radius: 4px;
     box-shadow   : rgba(0, 0, 0, 0.16) 0px 2px 8px 0px;
-    align-self: flex-start;
+    margin-top: 1.2em;
+
+    @media (min-width: 1000px) {
+        align-self: flex-start;
+        margin: unset;
+    }
 
     .form-container {
         min-width       : 300px;
