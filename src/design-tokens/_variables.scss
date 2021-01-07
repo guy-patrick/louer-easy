@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+/* Colors */
+$base-color       : rgb(38, 38, 38);
+$second-color     : rgba(167, 167, 167, 0.63);
+$third-color      : rgba(38, 38, 38, 0.3);
+$fourth-color     : rgba(167, 167, 167, 0.30);
+$accent-color     : #e00034;
+$search-color     : rgb(0, 106, 255);
+$search-dark-color: rgb(13, 69, 153);
+
+/* Fonts */
+$base-font: 'Source Sans Pro',
+sans-serif;
+
+/* Nav dimensions */
+$nav-height-min: 60px;
+$nav-height-max: 70px;
