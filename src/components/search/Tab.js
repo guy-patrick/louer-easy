@@ -1,23 +1,23 @@
-import { connect } from 'react-redux';
-import { toggleSellType } from '../../redux/search/search.actions'
-import { selectSearchSellType } from '../../redux/search/search.selectors'
-import { createStructuredSelector } from 'reselect';
+import { connect } from "react-redux";
+import { setSearchName } from "../../redux/search/search.actions";
+import { selectSearchName } from "../../redux/search/search.selectors";
+import { createStructuredSelector } from "reselect";
 
-const Tab = ({ name, sellType, toggleSellType }) => (
-    <span
-        className={`tab ${sellType === name ? 'tab-selected' : ''}`}
-        onClick={() => toggleSellType(name)}
-    >
-        {name === 'rent' ? 'Louer' : 'Acheter'}
-    </span>
-)
+const Tab = ({ title, searchName, setSearchName }) => (
+  <span
+    className={`tab ${searchName === title ? "tab-selected" : ""}`}
+    onClick={() => setSearchName(title)}
+  >
+    {title === "rent" ? "Louer" : "Acheter"}
+  </span>
+);
 
 const mapStateToProps = createStructuredSelector({
-    sellType: selectSearchSellType
-})
+  searchName: selectSearchName,
+});
 
-const mapDispatchToProps = dispatch => ({
-    toggleSellType: type => dispatch(toggleSellType(type))
-})
+const mapDispatchToProps = (dispatch) => ({
+  setSearchName: (search) => dispatch(setSearchName(search)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tab)
+export default connect(mapStateToProps, mapDispatchToProps)(Tab);

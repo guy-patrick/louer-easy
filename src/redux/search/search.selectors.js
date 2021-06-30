@@ -1,33 +1,33 @@
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
-export const selectSearch = state => state.search;
+export const selectSearch = (state) => state.search;
 
-export const selectSearchSellType = createSelector(
-    [selectSearch],
-    search => search.sellType
+export const selectSearchName = createSelector(
+  [selectSearch],
+  (search) => search.searchName
 );
 
 export const selectSearchPlace = createSelector(
-    [selectSearch],
-    search => search.place
+  [selectSearch],
+  (search) => search.place
 );
 
 export const selectSearchFixedAmount = createSelector(
-    [selectSearch],
-    search => search.fixedAmount
+  [selectSearch],
+  (search) => search.fixedAmount
 );
 
 export const selectMinSearchAmount = createSelector(
-    [selectSearch],
-    search => search.minAmount
+  [selectSearch],
+  (search) => search.minAmount
 );
 
 export const selectMaxSearchAmount = createSelector(
-    [selectSearch],
-    search => search.maxAmount
+  [selectSearch],
+  (search) => search.maxAmount
 );
 
-export const selectSearchTypes = createSelector(
-    [selectSearch],
-    search => search.searchTypes
-); 
+export const selectSearchRentalTypes = createSelector(
+  [selectSearch],
+  (search) => search.searchRentalTypes
+);
