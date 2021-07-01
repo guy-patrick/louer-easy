@@ -1,7 +1,8 @@
 @import "./design-tokens/variables";
 
-/* -------------------- 
--------- GLOBAL -------
+/*--------------------------- 
+-------* GLOBAL STYLES *-----
+-----------------------------
 */
 
 * {
@@ -45,7 +46,120 @@ button {
   display: none;
 }
 
-/* Spinner */
+/* ------------------------
+--------* COMPONENTS *-----
+---------------------------
+*/
+
+/* Form-input */
+
+$sub-color: grey;
+$main-color: black;
+
+@mixin shrinkLabel {
+  top: -14px;
+  font-size: 12px;
+  color: $main-color;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+
+  .form-input {
+    background: none;
+    background-color: white;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $sub-color;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form-input-label {
+      @include shrinkLabel();
+    }
+  }
+
+  input[type="password"] {
+    letter-spacing: 0.3em;
+  }
+
+  .form-input-label {
+    color: $sub-color;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel();
+    }
+  }
+}
+
+/* Custom button */
+
+.custom-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed";
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  &.google-sign-in {
+    background-color: #4285f4;
+    color: white;
+
+    &:hover {
+      background-color: #357ae8;
+      border: none;
+    }
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+/* -------------------- 
+-------- SPINNER ------
+*/
 
 .spinner-overlay {
   height: 60vh;
@@ -78,7 +192,9 @@ button {
   }
 }
 
-/* Ads Button */
+/* ---------------------- 
+-------- ADS BUTTON -----
+*/
 
 .ads-btn {
   border: none;
@@ -92,10 +208,8 @@ button {
   background: #000;
 }
 
-/* END ! */
-
-/* -------------------- 
--------- HEADER -------
+/* --------------------- 
+-------- HEADER --------
 */
 
 .nav-bloc {
@@ -125,15 +239,11 @@ button {
   }
 }
 
-/* logo */
-
 .nav-logo {
   cursor: pointer;
   font-size: 1.3em;
   font-family: "Josefin Sans", sans-serif;
 }
-
-/* nav-menu */
 
 .navbar {
   display: flex;
@@ -244,15 +354,18 @@ button {
   transform: translateY(8px);
 }
 
-/* END ! */
-
 /* ----------------------
--------- HOMEPAGE -------
+--------* PAGES *--------
+-------------------------
 */
 
-/* Content bloc */
+/* ----------------------
+--------1. HOMEPAGE -------
+*/
 
-/* Search bloc */
+/* ----------------------
+-------- Search ---------
+*/
 
 .search-bloc {
   padding: 2em;
@@ -299,7 +412,9 @@ button {
   }
 }
 
-/* 1. Tab */
+/* --------------------
+--------- Tab ---------
+*/
 
 .tab {
   padding: 0.9em 2.1em;
@@ -313,7 +428,9 @@ button {
   font-weight: 500;
 }
 
-/* 2. Search form */
+/* ----------------------
+------- Search-form -----
+*/
 
 .search-form {
   padding: 2.2em 1.5em;
@@ -327,7 +444,9 @@ button {
   }
 }
 
-/* 2.1. Search Input */
+/* ----------------------
+------- Search-input ----
+*/
 
 .search-input {
   width: 100%;
@@ -408,7 +527,9 @@ button {
   }
 }
 
-/* 3. Search choices */
+/* ------------------------
+------- Search-choices ----
+*/
 
 .search-choices {
   display: flex;
@@ -494,15 +615,13 @@ button {
   justify-content: center;
 }
 
-/* END ! */
-
-/* -------------------------- 
--------- RESULTS PAGE -------
+/* ---------------------------
+--------2. RESULTS PAGE ------
 */
 
-/* results */
-
-/* 1. Results Filter */
+/* ------------------------
+------- results-filter ----
+*/
 
 .filter-title {
   font-size: 15px;
@@ -556,7 +675,9 @@ button {
   }
 }
 
-/* 1.a Filter Tab */
+/* ----------------------
+------- filter-tab ------
+*/
 
 .filter-tab {
   display: flex;
@@ -618,7 +739,9 @@ button {
   }
 }
 
-/* 1.b Filter Tabs content */
+/* -----------------------------
+------- Filter Tabs content ----
+*/
 
 .tabs-content-wrapper {
   position: absolute;
@@ -757,7 +880,9 @@ button {
   }
 }
 
-/* 2. Results Items */
+/* -----------------------
+------- Results Items ----
+*/
 
 .results-items {
   @media (min-width: 400px) {
@@ -794,7 +919,9 @@ button {
   }
 }
 
-/* 2. Rental Item */
+/* ---------------------
+------- Rental Item ----
+*/
 
 .rental-item {
   border: 1px solid $fourth-color;
@@ -971,10 +1098,9 @@ button {
     }
   }
 }
-/* END ! */
 
-/* -------------------------- 
--------- RESULT DETAIL PAGE -------
+/* ------------------------------
+----- 3. RESULT DETAIL PAGE -----
 */
 
 .result-detail-header {
@@ -1427,4 +1553,40 @@ button {
   a:last-child {
     margin-right: unset;
   }
+}
+
+/* ------------------------------
+----- 4. SIGN-IN-AND-SIGN-UP ----
+*/
+
+.sign-in-and-sign-up {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto;
+
+  h2 {
+    margin: 10px 0;
+  }
+
+  button {
+    font-family: unset;
+  }
+}
+
+.sign-in {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
 }

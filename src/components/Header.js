@@ -1,9 +1,13 @@
-/* import { useHide } from "../hooks/useHide"; */
+import { useHide } from "../hooks/useHide";
 import { Link } from "react-router-dom";
-/* import AdsButton from "./AdsButton"; */
+import { connect } from "react-redux";
+import { signOutStart } from "../redux/user/user.actions";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../redux/user/user.selectors";
+import AdsButton from "./AdsButton";
 
-export const Header = () => {
-  /* const [state, toggleState] = useHide(); */
+const Header = ({ currentUser, signOutStart }) => {
+  const [state, toggleState] = useHide();
 
   return (
     <nav className="nav-bloc">
@@ -11,17 +15,23 @@ export const Header = () => {
         <Link to="/">
           <span className="nav-logo">Normalis IMMO</span>
         </Link>
-        {/* <div className="navbar">
+        <div className="navbar">
           <ul className={`navbar-menu ${!state ? "hidden" : ""}`}>
             <li className="navbar-item">
-              <a href="/" className="navbar-link">
+              <Link to="/" className="navbar-link">
                 Accueil
-              </a>
+              </Link>
             </li>
             <li className="navbar-item">
-              <a href="/" className="navbar-link">
-                A propos
-              </a>
+              {currentUser ? (
+                <div className="navbar-link" onClick={signOutStart}>
+                  Se déconnecter
+                </div>
+              ) : (
+                <Link to="/signin" className="navbar-link">
+                  Se connecter
+                </Link>
+              )}
             </li>
           </ul>
 
@@ -30,8 +40,18 @@ export const Header = () => {
           <div className="hamburger-btn" onClick={toggleState}>
             <span className="hamburger"></span>
           </div>
-        </div> */}
+        </div>
       </div>
     </nav>
   );
 };
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  signOutStart: () => dispatch(signOutStart()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

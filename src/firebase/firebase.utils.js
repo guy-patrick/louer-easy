@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/storage";
 
@@ -12,11 +12,32 @@ const config = {
   appId: "1:1091950888843:web:42bbf789fabb42bb92918e",
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(config);
-} else {
-  firebase.app();
-}
+firebase.initializeApp(config);
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = db.doc(`users/${userAuth.uid}`);
+  const snapshot = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log(`error creating user ${error.message}`);
+    }
+  }
+
+  return userRef;
+};
 
 export const convertRentalsSnaphotToMap = (rentalsSnapshot) => {
   const transformedCollection = rentalsSnapshot.docs.map((doc) => doc.data());
@@ -27,6 +48,21 @@ export const convertRentalsSnaphotToMap = (rentalsSnapshot) => {
   }, {});
 };
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
+
+export const auth = firebase.auth();
 export const db = firebase.firestore();
 export const storage = firebase.storage();
 export const storageRef = storage.ref();
+
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+
+export default firebase;
