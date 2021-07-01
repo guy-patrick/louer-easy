@@ -1241,3 +1241,94 @@ button {
     width: 39%;
   }
 }
+
+.editorials {
+  background-color: rgba(214, 235, 239, 0.5);
+  margin-top: 130px;
+
+  .inside {
+    height: auto;
+    background: none;
+    max-width: 1024px;
+    margin: 0px auto;
+    padding: 48px 0px 0px;
+
+    h2 {
+      padding-bottom: 12px;
+      text-align: left;
+      font-weight: 400;
+      position: relative;
+      margin: 0px 0px 24px;
+    }
+
+    h2::after {
+      content: "";
+      border-radius: 4px;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      width: 24px;
+      height: 4px;
+      background-color: rgb(224, 0, 52);
+    }
+
+    .posts-container {
+      max-width: 1024px;
+      text-align: left;
+      display: flex;
+      flex-flow: row wrap;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      margin: 0px auto;
+
+      .posts-container-inner {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        padding: 0px 0px 72px;
+
+        .post {
+          position: relative;
+          background-color: white;
+          text-align: left;
+          border-radius: 4px;
+          margin-right: 24px;
+          width: 230px;
+          box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 8px 0px,
+            rgba(0, 0, 0, 0.06) 0px 2px 4px 0px,
+            rgba(0, 0, 0, 0.04) 0px 1px 2px 0px;
+
+          a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+
+            img {
+              width: 100%;
+              height: auto;
+              border-radius: 4px 4px 0px 0px;
+              padding-bottom: 12px;
+            }
+
+            div {
+              border-radius: 4px;
+              position: absolute;
+              top: 0%;
+              left: 0%;
+              background-color: rgb(255, 255, 255);
+              color: rgb(224, 0, 52);
+              font-size: 12px;
+              padding: 3px 6px;
+              margin: 6px;
+            }
+
+            p {
+              padding: 0px 15px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
