@@ -299,6 +299,7 @@ $main-color: black;
   width: 100%;
   border-bottom: 1px solid $base-color;
   padding-bottom: 1em;
+  cursor: pointer;
 
   @media (min-width: 680px) {
     margin-top: 0;
@@ -1381,7 +1382,7 @@ $main-color: black;
     background: none;
     max-width: 1024px;
     margin: 0px auto;
-    padding: 48px 0px 0px;
+    padding: 48px;
 
     h2 {
       padding-bottom: 12px;
@@ -1403,6 +1404,7 @@ $main-color: black;
     }
 
     .posts-container {
+      width: 100%;
       max-width: 1024px;
       text-align: left;
       display: flex;
@@ -1414,10 +1416,13 @@ $main-color: black;
       margin: 0px auto;
 
       .posts-container-inner {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: row;
+        width: 100%;
         padding: 0px 0px 72px;
+
+        @media (min-width: 610px) {
+          display: flex;
+          justify-content: flex-start;
+        }
 
         .post {
           position: relative;
@@ -1484,10 +1489,13 @@ $main-color: black;
 
 .footer-links-section {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
   margin-bottom: 24px;
   justify-content: space-around;
+
+  @media (min-width: 610px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .footer-links-section::after {
@@ -1564,10 +1572,14 @@ $main-color: black;
 */
 
 .sign-in-and-sign-up {
-  width: 850px;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 850px;
   margin: 30px auto;
+
+  @media (min-width: 849px) {
+    display: flex;
+    justify-content: space-between;
+  }
 
   h2 {
     margin: 10px 0;
@@ -1579,9 +1591,15 @@ $main-color: black;
 }
 
 .sign-in {
-  width: 380px;
+  width: 90%;
+  max-width: 380px;
+  margin: auto;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 849px) {
+    margin: unset;
+  }
 
   .buttons {
     display: flex;
@@ -1590,7 +1608,14 @@ $main-color: black;
 }
 
 .sign-up {
+  width: 90%;
+  max-width: 380px;
+  margin: auto;
+  margin-top: 5em;
   display: flex;
   flex-direction: column;
-  width: 380px;
+
+  @media (min-width: 849px) {
+    margin: unset;
+  }
 }
