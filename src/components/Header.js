@@ -35,7 +35,11 @@ const Header = ({ currentUser, signOutStart }) => {
             </li>
           </ul>
 
-          <AdsButton className="navbar-link" title="Déposer une annonce" />
+          <AdsButton
+            className="navbar-link"
+            page="signin"
+            title="Déposer une annonce"
+          />
 
           <div className="hamburger-btn" onClick={toggleState}>
             <span className="hamburger"></span>
