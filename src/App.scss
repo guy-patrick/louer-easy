@@ -241,8 +241,12 @@ $main-color: black;
 
 .nav-logo {
   cursor: pointer;
-  font-size: 1.3em;
+  font-size: 1em;
   font-family: "Josefin Sans", sans-serif;
+
+  @media (min-width: 680px) {
+    font-size: 1.3em;
+  }
 }
 
 .navbar {

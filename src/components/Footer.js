@@ -57,9 +57,9 @@ export const Footer = () => (
         </div>
         <div className="footer-copyright-section">
           <div>NormalisIMMO © 2020 - 2021</div>
-          <a her="#">Condition générales d'utilisation</a>
-          <a her="#">Politique Générale de Protection des Données</a>
-          <a her="#">Fonctionnement de notre site</a>
+          <a href="#">Condition générales d'utilisation</a>
+          <a href="#">Politique Générale de Protection des Données</a>
+          <a href="#">Fonctionnement de notre site</a>
         </div>
       </div>
     </div>

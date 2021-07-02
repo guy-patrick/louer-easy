@@ -17,12 +17,12 @@ const Header = ({ currentUser, signOutStart }) => {
         </Link>
         <div className="navbar">
           <ul className={`navbar-menu ${!state ? "hidden" : ""}`}>
-            <li className="navbar-item">
+            <li className="navbar-item" onClick={toggleState}>
               <Link to="/" className="navbar-link">
                 Accueil
               </Link>
             </li>
-            <li className="navbar-item">
+            <li className="navbar-item" onClick={toggleState}>
               {currentUser ? (
                 <div className="navbar-link" onClick={signOutStart}>
                   Se déconnecter
